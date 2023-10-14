@@ -1,0 +1,33 @@
+<form (ngSubmit)="onSubmitRegister()" #loginForm="ngForm">
+
+  <div class="form-outline mb-4">
+    <input class="form-control" type="text" id="registerEmail" name="registerEmail" [(ngModel)]="email"/>
+    <label class="form-label" for="registerEmail">Email</label>
+  </div>
+  <div class="form-outline mb-4">
+    <input class="form-control" type="text" id="registerPassword" name="password" [(ngModel)]="password"/>
+    <label class="form-label" for="registerPassword">Password</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input class="form-control" type="text" id="firstName1" name="firstName1" [(ngModel)]="firstName1"/>
+    <label class="form-label" for="firstName1">First name</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input class="form-control" type="text" id="firstName2" name="firstName2" [(ngModel)]="firstName2"/>
+    <label class="form-label" for="firstName2">Second name</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input class="form-control" type="text" id="lastName" name="lastName" [(ngModel)]="lastName"/>
+    <label class="form-label" for="lastName">Last name</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber"/>
+    <label class="form-label" for="phoneNumber">Phone number</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>
+</form>
