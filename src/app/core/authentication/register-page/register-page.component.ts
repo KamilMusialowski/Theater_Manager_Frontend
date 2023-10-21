@@ -5,6 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {SystemRoleModel} from "../../models/system-role-models/system-role.model";
 import {SystemRoleEnum} from "../../models/enums/system-role-enum";
 
+
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',

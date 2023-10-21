@@ -11,6 +11,11 @@ const routes: Routes = [
     path:"authentication",
     loadComponent: () =>
       import("./core/authentication/auth-page/auth-page.component").then((m) => m.AuthPageComponent)
+  },
+  {
+    path:"main-view",
+    loadComponent: () =>
+      import("./features/main-view/main-view.component").then((m => m.MainViewComponent))
   }
 ];
 
