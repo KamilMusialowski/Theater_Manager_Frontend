@@ -1,10 +1,10 @@
  <form (ngSubmit)="onSubmitLogin()" #loginForm="ngForm">
     <div class="form-outline mb-4">
-      <input class="form-control" type="login" id="loginEmail" name="loginEmail" [(ngModel)]="email"/>
+      <input class="form-control" type="email" id="loginEmail" name="loginEmail" [(ngModel)]="userLoginModel._email"/>
       <label class="form-label" for="loginEmail">Email</label>
     </div>
     <div class="form-outline mb-4">
-      <input class="form-control" type="password" id="loginPassword" name="password" [(ngModel)]="password"/>
+      <input class="form-control" type="password" id="loginPassword" name="password" [(ngModel)]="userLoginModel._password"/>
       <label class="form-label" for="loginPassword">Password</label>
     </div>
     <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>

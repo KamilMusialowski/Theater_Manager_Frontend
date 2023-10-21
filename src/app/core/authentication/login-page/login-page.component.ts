@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {FormsModule} from "@angular/forms";
 import {UserLoginModel} from "../../models/user-models/user-login.model";
+import {UserService} from "../../services/user.service";
 
 @Component({
   selector: 'app-login-page',
@@ -13,17 +14,14 @@ import {UserLoginModel} from "../../models/user-models/user-login.model";
 })
 export class LoginPageComponent {
 
-  @Output() onSubmitLoginEvent = new EventEmitter();
+  constructor(private userService: UserService) {
+  }
 
-  // userLoginModel = {} as UserLoginModel;
-
-  email: string = "";
-  password: string = "";
+  userLoginModel: UserLoginModel = new UserLoginModel("", "")
 
   onSubmitLogin(): void {
-    this.onSubmitLoginEvent.emit({
-      "email": this.email,
-      "password": this.password
-    });
+    this.userService.onLogin(
+      this.userLoginModel
+    );
   }
 }

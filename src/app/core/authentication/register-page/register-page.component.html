@@ -1,32 +1,53 @@
 <form (ngSubmit)="onSubmitRegister()" #loginForm="ngForm">
 
   <div class="form-outline mb-4">
-    <input class="form-control" type="text" id="registerEmail" name="registerEmail" [(ngModel)]="email"/>
+    <input class="form-control" type="text" id="registerEmail" name="registerEmail" [(ngModel)]="userRegisterModel._email"/>
     <label class="form-label" for="registerEmail">Email</label>
   </div>
   <div class="form-outline mb-4">
-    <input class="form-control" type="text" id="registerPassword" name="password" [(ngModel)]="password"/>
+    <input class="form-control" type="text" id="registerPassword" name="password" [(ngModel)]="userRegisterModel._password"/>
     <label class="form-label" for="registerPassword">Password</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input class="form-control" type="text" id="firstName1" name="firstName1" [(ngModel)]="firstName1"/>
+    <input class="form-control" type="text" id="firstName1" name="firstName1" [(ngModel)]="userRegisterModel._firstName1"/>
     <label class="form-label" for="firstName1">First name</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input class="form-control" type="text" id="firstName2" name="firstName2" [(ngModel)]="firstName2"/>
+    <input class="form-control" type="text" id="firstName2" name="firstName2" [(ngModel)]="userRegisterModel._firstName2"/>
     <label class="form-label" for="firstName2">Second name</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input class="form-control" type="text" id="lastName" name="lastName" [(ngModel)]="lastName"/>
+    <input class="form-control" type="text" id="lastName" name="lastName" [(ngModel)]="userRegisterModel._lastName"/>
     <label class="form-label" for="lastName">Last name</label>
   </div>
 
   <div class="form-outline mb-4">
-    <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber"/>
+    <input class="form-control" type="text" id="phoneNumber" name="phoneNumber" [(ngModel)]="userRegisterModel._phoneNumber"/>
     <label class="form-label" for="phoneNumber">Phone number</label>
+  </div>
+
+  <div class="form-outline mb-4">
+      <select class="form-select" #sex (change)="onSexSelected(sex.value)" [(ngModel)]="userRegisterModel._sex" id="sex" name="sex">
+        <option value="MALE">Male</option>
+        <option value="FEMALE">Female</option>
+        <option value="NONE">None</option>
+      </select>
+    <label class="form-label" for="sex">Sex</label>
+  </div>
+
+  <div class="form-outline mb-4">
+    <input type="checkbox" id="chbManager" name="chbManager" value="Manager" class="form-check-input" [(ngModel)]="managerRole">
+    <label class="form-check-label" for="chbManager">Manager</label>
+    <br>
+    <input type="checkbox" id="chbDirector" name="chbDirector" value="Director" class="form-check-input" [(ngModel)]="directorRole">
+    <label class="form-check-label" for="chbDirector">Director</label>
+    <br>
+    <input type="checkbox" id="chbActor" name="chbActor" value="Actor" class="form-check-input" [(ngModel)]="actorRole">
+    <label class="form-check-label" for="chbActor">Actor</label>
+    <br>
   </div>
 
   <button type="submit" class="btn btn-primary btn-block mb-4">Register</button>

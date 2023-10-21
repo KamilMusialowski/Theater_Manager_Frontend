@@ -8,15 +8,11 @@ export class UserService {
   constructor(private axiosService: AxiosService) {
   }
 
-  onLogin(userLoggingIn: any): void {
-    console.log(userLoggingIn);
+  onLogin(userLoggingIn: UserLoginModel): void {
     this.axiosService.request(
       "POST",
       "/login",
-      {
-        email: userLoggingIn.email,
-        password: userLoggingIn.password
-      }
+      userLoggingIn
     ).then(
       response => {
         this.axiosService.setAuthToken(response.data.token);
@@ -26,14 +22,16 @@ export class UserService {
       });
   }
 
-  onRegister(input: UserRegisterModel): void {
-
-  }
-
-  UserLoginModelToRequestData(userLM: UserLoginModel) {
-    return {
-      email: userLM.email,
-      password: userLM.password
-    }
+  onRegister(userRegistering: UserRegisterModel) {
+    this.axiosService.request(
+      "POST",
+      "/register",
+      userRegistering
+    ).then(
+      response => {
+        this.axiosService.setAuthToken(response.data.token);
+      }).catch(error => {
+      this.axiosService.setAuthToken(null);
+    });
   }
 }

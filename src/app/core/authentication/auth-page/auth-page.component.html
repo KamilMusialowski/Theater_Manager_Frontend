@@ -14,7 +14,7 @@
 
     <div class="tab-content">
       <div [ngClass]="active == 'login' ? 'tab-pane fade show active' : 'tab-pane fade'">
-        <app-login-page (onSubmitLoginEvent)="getUserService().onLogin($event)"></app-login-page>
+        <app-login-page></app-login-page>
       </div>
 
       <div [ngClass]="active == 'register' ? 'tab-pane fade show active' : 'tab-pane fade'">

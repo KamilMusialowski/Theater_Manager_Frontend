@@ -30,8 +30,6 @@ export class AxiosService {
       headers = {"Authorization": "Bearer " + this.getAuthToken()}
     }
 
-    console.log(data);
-
     return axios({
       method: method,
       url: url,
