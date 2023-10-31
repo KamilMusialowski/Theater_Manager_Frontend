@@ -6,6 +6,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {AuthPageComponent} from './core/authentication/auth-page/auth-page.component';
 import { WelcomeComponent } from './features/welcome/welcome.component';
+import {FeaturesModule} from "./features/features.module";
+import {CoreModule} from "./core/core.module";
+import {SharedModule} from "./shared/shared.module";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {AgGridModule} from "ag-grid-angular";
 
 @NgModule({
   declarations: [
@@ -16,7 +22,13 @@ import { WelcomeComponent } from './features/welcome/welcome.component';
     AppRoutingModule,
     FormsModule,
     WelcomeComponent,
-    AuthPageComponent
+    AuthPageComponent,
+    FeaturesModule,
+    CoreModule,
+    SharedModule,
+    MatDialogModule,
+    MatSnackBarModule,
+    AgGridModule
   ],
   providers: [],
   bootstrap: [AppComponent]

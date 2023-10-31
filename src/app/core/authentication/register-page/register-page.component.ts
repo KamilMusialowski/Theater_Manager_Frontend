@@ -33,11 +33,11 @@ export class RegisterPageComponent {
   }
 
   onSubmitRegister(): void {
-    console.log(this.managerRole);
     this.prepareRolesArray();
     this.userService.onRegister(
       this.userRegisterModel
     );
+    this.userRegisterModel = new UserRegisterModel("", "", "", "", "", "", this.sexDeafaultValue, []);
   }
 
   prepareRolesArray(): void {

@@ -15,7 +15,14 @@ const routes: Routes = [
   {
     path:"main-view",
     loadComponent: () =>
-      import("./features/main-view/main-view.component").then((m => m.MainViewComponent))
+      import("./features/main-view/main-view.component").then((m => m.MainViewComponent)),
+    children: [
+      {
+        path:"theaters-view",
+        loadComponent: () =>
+          import("./features/theaters-view/theaters-view.component").then((m => m.TheatersViewComponent))
+      }
+    ]
   }
 ];
 

@@ -1,0 +1,17 @@
+<button
+  type="button"
+  class="btn btn-light"
+  (click)="openCreateTheaterModal()">Create new theater</button>
+<button
+  type="button"
+  class="btn btn-light"
+  [disabled]="!rowSelected"
+  (click)="openAddPersonelModal()">Add personel to theater</button>
+<ag-grid-angular
+  id="theatersGrid"
+  class="ag-theme-alpine"
+  rowSelection="single"
+  (rowSelected)="onRowSelected($event)"
+  [columnDefs]="columnDefs"
+  [rowData]="rowData">
+</ag-grid-angular>

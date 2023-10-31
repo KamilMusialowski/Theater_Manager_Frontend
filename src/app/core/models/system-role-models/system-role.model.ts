@@ -2,7 +2,7 @@ import {SystemRoleEnum} from "../enums/system-role-enum";
 
 export class SystemRoleModel {
 
-  private systemRole: SystemRoleEnum;
+  public systemRole: SystemRoleEnum;
 
 
   constructor(systemRole: SystemRoleEnum) {
@@ -10,11 +10,11 @@ export class SystemRoleModel {
   }
 
 
-  get _systemRole(): SystemRoleEnum {
+  public get _systemRole(): SystemRoleEnum {
     return this.systemRole;
   }
 
-  set _systemRole(value: SystemRoleEnum) {
+ public set _systemRole(value: SystemRoleEnum) {
     this.systemRole = value;
   }
 }
