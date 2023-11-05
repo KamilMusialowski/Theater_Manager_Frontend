@@ -64,7 +64,9 @@ export class TheatersViewComponent implements OnInit{
   }
 
   openAddPersonelModal(): void {
-    console.log(this.rowSelected);
+    // console.log(this.rowSelected);
+    this.theaterService.theaterId = this.rowSelected.id;
+    // console.log(this.theaterService.theaterId)
     let addPersonelDialog = this.dialog.open(AddPersonelModalComponent, {
       height: '700px',
       width: '1200px'

@@ -17,7 +17,7 @@ export class LoginPageComponent {
   constructor(private userService: UserService) {
   }
 
-  userLoginModel: UserLoginModel = new UserLoginModel("", "")
+  userLoginModel: UserLoginModel = new UserLoginModel("test@test.pl", "test")
 
   onSubmitLogin(): void {
     this.userService.onLogin(

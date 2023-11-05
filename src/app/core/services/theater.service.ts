@@ -11,6 +11,8 @@ export class TheaterService {
   constructor(private axiosService: AxiosService, private router: Router, private userService: UserService) {
   }
 
+  private _theaterId: string = '';
+
   onCreate(theaterModel: TheatreCreateModel): Promise<any> {
     let requestDataObject: TheatreCreateObject = new TheatreCreateObject(this.userService.loggedInUserId, theaterModel);
     return this.axiosService.request(
@@ -29,5 +31,28 @@ export class TheaterService {
       },
       {managerId}
     );
+  }
+
+  addNewPersonel(personelEmail: string, theaterId: string, role: any): Promise<any> {
+    let requestDataObject = {
+      personelEmail: personelEmail,
+      theaterId: theaterId,
+      role: role
+    }
+    return this.axiosService.request(
+      "POST",
+      "theater/addPersonel",
+      requestDataObject,
+      {}
+    )
+  }
+
+
+  get theaterId(): string {
+    return this._theaterId;
+  }
+
+  set theaterId(value: string) {
+    this._theaterId = value;
   }
 }

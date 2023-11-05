@@ -2,6 +2,24 @@
   id="usersGrid"
   class="ag-theme-alpine"
   rowSelection="single"
+  (rowSelected)="onRowSelected($event)"
   [columnDefs]="columnDefs"
   [rowData]="rowData">
 </ag-grid-angular>
+<div id="rolesRBs" class="justify-content-center">
+  <form (ngSubmit)="onSubmitAddPersonel()" #loginForm="ngForm">
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="rbManager" name="role" value="MANAGER" [(ngModel)]="selesctedRole">
+      <label class="form-check-label" for="rbManager">Manager</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="rbDirector" name="role" value="DIRECTOR" [(ngModel)]="selesctedRole">
+      <label class="form-check-label" for="rbDirector">Director</label>
+    </div>
+    <div class="form-check">
+      <input type="radio" class="form-check-input" id="rbActor" name="role" value="ACTOR" [(ngModel)]="selesctedRole">
+      <label class="form-check-label" for="rbActor">Actor</label>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!selesctedRole">Add personel</button>
+  </form>
+</div>

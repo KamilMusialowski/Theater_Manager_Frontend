@@ -4,13 +4,17 @@ import {CreateTheaterModalComponent} from "../create-theater-modal/create-theate
 import {AgGridModule} from "ag-grid-angular";
 import {ColDef, ValueFormatterParams} from "ag-grid-community";
 import {UserService} from "../../../core/services/user.service";
+import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {TheaterService} from "../../../core/services/theater.service";
 
 @Component({
   selector: 'app-add-personel-modal',
   templateUrl: './add-personel-modal.component.html',
   styleUrls: ['./add-personel-modal.component.css'],
   imports: [
-    AgGridModule
+    AgGridModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   standalone: true
 })
@@ -20,7 +24,7 @@ export class AddPersonelModalComponent implements OnInit{
     this.getUsersToGrid();
   }
 
-  constructor(private userService: UserService, private dialogRef: MatDialogRef<CreateTheaterModalComponent>) {
+  constructor(private userService: UserService, private theaterService: TheaterService, private dialogRef: MatDialogRef<CreateTheaterModalComponent>) {
   }
 
   columnDefs: ColDef[] = [
@@ -46,6 +50,9 @@ export class AddPersonelModalComponent implements OnInit{
 
   private _rowData: any[] = [];
 
+  selectedRow: any;
+  selesctedRole = null;
+
   getUsersToGrid() {
     this.userService.getUsers().then(
       response => {
@@ -53,6 +60,12 @@ export class AddPersonelModalComponent implements OnInit{
         console.log(this.rowData);
       }
     )
+  }
+
+  onRowSelected(event: any) {
+    if(event.node.selected) {
+      this.selectedRow = event.node.data;
+    }
   }
 
   userRolesFormatter(params: ValueFormatterParams): string {
@@ -63,6 +76,13 @@ export class AddPersonelModalComponent implements OnInit{
     }
   }
 
+  onSubmitAddPersonel() {
+    this.theaterService.addNewPersonel(this.selectedRow.email, this.theaterService.theaterId, this.selesctedRole).then(
+      respond => {
+        this.dialogRef.close();
+      }
+  )
+  }
 
   get rowData(): any[] {
     return this._rowData;
