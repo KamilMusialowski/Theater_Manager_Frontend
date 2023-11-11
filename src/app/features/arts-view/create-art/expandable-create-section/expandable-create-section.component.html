@@ -1,0 +1,36 @@
+<button (click)="toggleExpand()">Create new art</button>
+<div class="expandable-section" [ngClass]="{ 'expanded': isExpanded }">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <form (ngSubmit)="startArtCreation()" #startCreateArt="ngForm">
+        <div class="form-outline mb-4">
+          <select #theatersList [(ngModel)]="selectedTheaterId" (change)="onTheaterSelected(theatersList.value)" class="form-select" id="theatersList">
+            <option *ngFor="let theater of usersTheatersList" [ngValue]="theater.id">{{theater.name}}</option>
+          </select>
+          <label class="form-label" for="theatersList">Theater</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input class="form-control" type="text" id="artTitle" name="artTitle" [(ngModel)]="artTitle"/>
+          <label class="form-label" for="artTitle">Art title</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input class="form-control" type="text" id="author_1" name="author_1" [(ngModel)]="author_1"/>
+          <label class="form-label" for="author_1">Art author #1</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input class="form-control" type="text" id="author_2" name="author_2" [(ngModel)]="author_2"/>
+          <label class="form-label" for="author_2">Art author #2</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input class="form-control" type="text" id="author_3" name="author_3" [(ngModel)]="author_3"/>
+          <label class="form-label" for="author_3">Art author #3</label>
+        </div>
+        <div class="form-outline mb-4">
+          <input class="form-control" type="number" id="numberOfActs" name="numberOfActs" [(ngModel)]="numberOfActs"/>
+          <label class="form-label" for="numberOfActs">Number of acts</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block mb-4">Create</button>
+      </form>
+    </div>
+  </div>
+</div>

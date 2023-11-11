@@ -1,0 +1,10 @@
+<app-header [userName]="userService.loggedInUserFirstName"></app-header>
+<select [(ngModel)]="selectedAct">
+  <option *ngFor="let act of acts" [value]="act">{{ act }}</option>
+</select>
+<div *ngFor="let character of characters">
+  <input type="checkbox" [(ngModel)]="selectedCharacters[character.name]" id="cb{{character.name}}">
+  <label for="cb{{character.name}}">{{character.name}}</label>
+</div>
+<button class="btn-secondary" (click)="createScene()">Add scene to act</button>
+<button class="btn-primary" (click)="onCreateArt()">Create art</button>

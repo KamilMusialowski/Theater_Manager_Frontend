@@ -1,0 +1,24 @@
+<app-header [userName]="userService.loggedInUserFirstName"></app-header>
+<div class="row justify-content-center characterForm">
+  <div class="col-4">
+    <form (ngSubmit)="onAddCharacter()" #startCreateArt="ngForm">
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="charactersName" name="charactersName"
+               [(ngModel)]="newCharacter.name"/>
+        <label class="form-label" for="charactersName">Characters name</label>
+      </div>
+      <div class="form-outline mb-4">
+        <select class="form-select" #charactersSex (change)="onSexSelected(charactersSex.value)"
+                [(ngModel)]="newCharacter.sex" id="charactersSex" name="charactersSex">
+          <option value="MALE">Male</option>
+          <option value="FEMALE">Female</option>
+          <option value="NONE">None</option>
+        </select>
+        <label class="form-label" for="charactersSex">Characters sex</label>
+      </div>
+      <button type="submit" class="btn btn-secondary btn-block mb-4">Add Character</button>
+    </form>
+  </div>
+
+  <button class="btn btn-primary btn-block mb-4 continueBtn" (click)="onContinue()">Continue</button>
+</div>
