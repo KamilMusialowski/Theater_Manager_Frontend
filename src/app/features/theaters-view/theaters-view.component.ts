@@ -7,6 +7,7 @@ import {UserService} from "../../core/services/user.service";
 import {TheaterService} from "../../core/services/theater.service";
 import {AddPersonelModalComponent} from "./add-personel-modal/add-personel-modal.component";
 import {single} from "rxjs";
+import {AddRoomModalComponent} from "./add-room-modal/add-room-modal.component";
 
 @Component({
   selector: 'app-theaters-view',
@@ -64,12 +65,18 @@ export class TheatersViewComponent implements OnInit{
   }
 
   openAddPersonelModal(): void {
-    // console.log(this.rowSelected);
     this.theaterService.theaterId = this.rowSelected.id;
-    // console.log(this.theaterService.theaterId)
     let addPersonelDialog = this.dialog.open(AddPersonelModalComponent, {
       height: '700px',
       width: '1200px'
+    });
+  }
+
+  openAddRoomModal(): void {
+    this.theaterService.theaterId = this.rowSelected.id;
+    let addRoomDialog = this.dialog.open(AddRoomModalComponent, {
+      height: '600px',
+      width: '500px'
     });
   }
 

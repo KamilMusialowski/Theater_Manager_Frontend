@@ -12,11 +12,12 @@ import { ExpandableCreateSectionComponent } from './arts-view/create-art/expanda
 import { AddCharactersViewComponent } from './arts-view/create-art/add-characters-view/add-characters-view.component';
 import { AddScenesViewComponent } from './arts-view/create-art/add-scenes-view/add-scenes-view.component';
 import { AssignArtRolesComponent } from './arts-view/assign-art-roles/assign-art-roles.component';
+import { AddRoomModalComponent } from './theaters-view/add-room-modal/add-room-modal.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
   declarations: [
-
   ],
   exports: [
     HeaderComponent,
@@ -35,7 +36,9 @@ import { AssignArtRolesComponent } from './arts-view/assign-art-roles/assign-art
     ExpandableCreateSectionComponent,
     AddCharactersViewComponent,
     AddScenesViewComponent,
-    AssignArtRolesComponent
+    AssignArtRolesComponent,
+    ReactiveFormsModule,
+    AddRoomModalComponent
   ]
 })
 export class FeaturesModule {

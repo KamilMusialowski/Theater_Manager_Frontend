@@ -1,0 +1,23 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form (submit)="onHallCreate()" #addRoom="ngForm">
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="hallName" name="hallName" [(ngModel)]="hallName"/>
+        <label class="form-label" for="hallName">Hall name</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="number" id="hallCapacity" name="hallCapacity" [(ngModel)]="hallCapacity"/>
+        <label class="form-label" for="hallCapacity">Hall capacity</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4">Create new hall</button>
+    </form>
+
+    <ag-grid-angular
+      id="hallsGrid"
+      class="ag-theme-alpine"
+      [columnDefs]="columnDefs"
+      [rowData]="halls">
+    </ag-grid-angular>
+
+  </div>
+</div>

@@ -4,6 +4,7 @@ import {AxiosService} from "./axios-service/axios.service";
 import {Router} from "@angular/router";
 import {UserService} from "./user.service";
 import {TheatreCreateObject} from "../requests-data-objects/theatre-requests-objects/TheatreCreateObject";
+import {HallModel} from "../models/hall-models/hall.model";
 
 @Injectable({providedIn: "root"})
 export class TheaterService {
@@ -56,6 +57,26 @@ export class TheaterService {
     )
   }
 
+  createTheatreHall(hall: HallModel, theaterId: string) {
+    return this.axiosService.request(
+      "POST",
+      "theater/createHall",
+      {
+        hallModel: hall,
+        theaterId: theaterId
+      },
+      {}
+    )
+  }
+
+  getTheaterHalls(theaterId: string) {
+    return this.axiosService.request(
+      "GET",
+      "theater/getHalls",
+      {},
+      {theaterId}
+    )
+  }
 
   get theaterId(): string {
     return this._theaterId;
