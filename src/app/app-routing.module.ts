@@ -25,6 +25,10 @@ const routes: Routes = [
         path: "arts-view",
         loadComponent: () =>
           import("./features/arts-view/arts-view.component").then((m => m.ArtsViewComponent))
+      }, {
+      path: "assign-art-roles",
+        loadComponent: () =>
+          import("./features/arts-view/assign-art-roles/assign-art-roles.component").then((m => m.AssignArtRolesComponent))
       }
     ]
   },

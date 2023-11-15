@@ -1,2 +1,10 @@
 <app-expandable-create-section></app-expandable-create-section>
-<p>arts-view works!</p>
+<button (click)="clickAssignRoles()">Assign art roles</button>
+<ag-grid-angular
+  id="artsGrid"
+  class="ag-theme-alpine"
+  rowSelection="single"
+  [columnDefs]="columnDefs"
+  [rowData]="rowData"
+  (rowSelected)="onRowSelected($event)">
+</ag-grid-angular>

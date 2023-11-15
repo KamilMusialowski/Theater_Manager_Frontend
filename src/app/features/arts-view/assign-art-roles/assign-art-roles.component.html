@@ -1,0 +1,7 @@
+<div *ngFor="let assigned of assignedActors">
+  <p>{{assigned.character}}</p>
+  <select #actorsList (change)="onActorSelected(assigned.character, actorsList.value)" [(ngModel)]="assigned.actorId">
+    <option *ngFor="let actor of actors" [value]="actor.user.id">{{actor.user.firstName1}} {{actor.user.lastName}}</option>
+  </select>
+</div>
+<button (click)="onSaveClick()">Save</button>

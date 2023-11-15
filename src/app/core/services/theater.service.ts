@@ -47,6 +47,15 @@ export class TheaterService {
     )
   }
 
+  getActors(theatreId: string) {
+    return this.axiosService.request(
+      "GET",
+      "theater/getActors",
+      {},
+      {theatreId}
+    )
+  }
+
 
   get theaterId(): string {
     return this._theaterId;

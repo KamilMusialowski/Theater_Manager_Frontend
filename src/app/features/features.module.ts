@@ -11,10 +11,12 @@ import { ArtsViewComponent } from './arts-view/arts-view.component';
 import { ExpandableCreateSectionComponent } from './arts-view/create-art/expandable-create-section/expandable-create-section.component';
 import { AddCharactersViewComponent } from './arts-view/create-art/add-characters-view/add-characters-view.component';
 import { AddScenesViewComponent } from './arts-view/create-art/add-scenes-view/add-scenes-view.component';
+import { AssignArtRolesComponent } from './arts-view/assign-art-roles/assign-art-roles.component';
 
 
 @NgModule({
   declarations: [
+
   ],
   exports: [
     HeaderComponent,
@@ -32,7 +34,8 @@ import { AddScenesViewComponent } from './arts-view/create-art/add-scenes-view/a
     ArtsViewComponent,
     ExpandableCreateSectionComponent,
     AddCharactersViewComponent,
-    AddScenesViewComponent
+    AddScenesViewComponent,
+    AssignArtRolesComponent
   ]
 })
 export class FeaturesModule {
