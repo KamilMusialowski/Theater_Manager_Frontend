@@ -57,7 +57,6 @@ export class AddPersonelModalComponent implements OnInit{
     this.userService.getUsers().then(
       response => {
         this.rowData = response.data;
-        console.log(this.rowData);
       }
     )
   }

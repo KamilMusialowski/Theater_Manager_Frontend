@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {UserService} from "./user.service";
 import {TheatreCreateObject} from "../requests-data-objects/theatre-requests-objects/TheatreCreateObject";
 import {HallModel} from "../models/hall-models/hall.model";
+import {TheatreEditModel} from "../models/theatre-models/theater-edit.model";
 
 @Injectable({providedIn: "root"})
 export class TheaterService {
@@ -28,8 +29,7 @@ export class TheaterService {
     return this.axiosService.request(
       "GET",
       "/theater/getTheatersOfManager",
-      {
-      },
+      {},
       {managerId}
     );
   }
@@ -76,6 +76,45 @@ export class TheaterService {
       {},
       {theaterId}
     )
+  }
+
+  getTheater(theaterId: string) {
+    return this.axiosService.request(
+      "GET",
+      "theater/getTheater",
+      {},
+      {theaterId}
+    );
+  }
+
+  editTheater(theater: TheatreEditModel) {
+    return this.axiosService.request(
+      "POST",
+      "theater/editTheater",
+      theater,
+      {}
+    );
+  }
+
+  getTheaterPersonel() {
+    let theaterId = this._theaterId
+    return this.axiosService.request(
+      "GET",
+      "theater/getPersonel",
+      {},
+      {theaterId}
+    );
+  }
+
+  deleteTheaterPersonel(personelId: string) {
+    return this.axiosService.request(
+      "GET",
+      "theater/deletePersonel",
+      {},
+      {
+        personelId
+      }
+    );
   }
 
   get theaterId(): string {

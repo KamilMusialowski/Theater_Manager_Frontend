@@ -1,0 +1,16 @@
+.expandable-section {
+  width: 60em;
+  height: 0;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.expandable-section.expanded {
+  height: auto;
+}
+
+#eventsGrid {
+  width: 60em;
+  height: 25em;
+  margin: auto;
+}

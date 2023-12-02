@@ -1,0 +1,24 @@
+<div class="row justify-content-center mt-4">
+  <div class="col-8">
+
+    <form (ngSubmit)="onCreateRehearsal()" #createRehForm="ngForm">
+      <div class="form-outline mb-4">
+        <input class="form-control" type="datetime-local" id="startDT" name="startDT" [(ngModel)]="startDate"/>
+        <label class="form-label" for="startDT">Rehearsal beginning date and time</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="datetime-local" id="endDT" name="endDT" [(ngModel)]="endDate"/>
+        <label class="form-label" for="endDT">Rehearsal ending date and time</label>
+      </div>
+      <div class="form-outline mb-4">
+        <!-- Dodano klasę form-select dla listy rozwijanej -->
+        <select class="form-select" #hallsList (change)="onHallSelected(hallsList.value)" [(ngModel)]="hallId" name="hallsList" id="hallsList">
+          <option *ngFor="let hall of halls" [value]="hall.id">{{hall.name}} | capacity: {{hall.capacity}}</option>
+        </select>
+        <label class="form-label" for="hallsList">Hall</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4">Create rehearsal</button>
+    </form>
+
+  </div>
+</div>

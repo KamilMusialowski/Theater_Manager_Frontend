@@ -52,6 +52,5 @@ export class ExpandableCreateSectionComponent implements OnInit{
     if (colonIndex && colonIndex !== -1) {
       this.selectedTheaterId = this.selectedTheaterId.substring(colonIndex + 1).trim();
     }
-    console.log(this.selectedTheaterId);
   }
 }

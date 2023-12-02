@@ -1,0 +1,16 @@
+<div class="mt-4">
+  <ag-grid-angular
+    id="personelGrid"
+    class="ag-theme-alpine"
+    rowSelection="single"
+    (rowSelected)="onRowSelected($event)"
+    [columnDefs]="columnDefs"
+    [rowData]="rowData">
+  </ag-grid-angular>
+  <button
+    type="button"
+    class="btn btn-light"
+    [disabled]="!rowSelected"
+    (click)="onDeletePersonel()">Delete selected personel
+  </button>
+</div>

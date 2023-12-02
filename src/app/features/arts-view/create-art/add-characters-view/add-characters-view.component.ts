@@ -5,6 +5,8 @@ import {UserService} from "../../../../core/services/user.service";
 import {HeaderComponent} from "../../../main-view/header/header.component";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {Router} from "@angular/router";
+import {ColDef} from "ag-grid-community";
+import {AgGridModule} from "ag-grid-angular";
 
 @Component({
   selector: 'app-add-characters-view',
@@ -13,7 +15,8 @@ import {Router} from "@angular/router";
   imports: [
     HeaderComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule
   ],
   standalone: true
 })
@@ -21,6 +24,20 @@ export class AddCharactersViewComponent implements OnInit{
 
   newCharacter: CharacterModel = new CharacterModel('', '');
   characters: CharacterModel[] = [];
+
+  columnDefs: ColDef[] = [
+    {
+      headerName: 'Characters name',
+      field: 'name',
+      width: 400
+    },
+    {
+      headerName: 'Characters sex',
+      field: 'sex',
+      width: 200,
+      sortable: true
+    }
+  ];
 
   constructor(private artCreationService: ArtCreationService, public userService: UserService, private router: Router) {
     this.newCharacter = new CharacterModel('', '');
@@ -38,13 +55,12 @@ export class AddCharactersViewComponent implements OnInit{
 
   onAddCharacter() {
     this.characters.push(this.newCharacter);
-    console.log(this.characters);
+    this.characters = [...this.characters]
     this.newCharacter = new CharacterModel('', '');
   }
 
   onContinue() {
     this.artCreationService.saveCharacters([...this.characters]);
-    console.log(this.artCreationService.creatingArt.characters[0].name);
     this.newCharacter = new CharacterModel('', '');
     this.characters = [];
     this.router.navigate(['create-art-scenes']);

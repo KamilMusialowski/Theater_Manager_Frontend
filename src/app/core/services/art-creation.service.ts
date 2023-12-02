@@ -42,7 +42,6 @@ export class ArtCreationService {
 
   addSceneToAct(actNumber: number, scene: SceneModel) {
     this.creatingArt.acts[actNumber].scenes.push(scene);
-    console.log(this.creatingArt);
   }
 
   onCreateArt() {

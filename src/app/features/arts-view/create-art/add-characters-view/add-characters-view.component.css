@@ -5,3 +5,10 @@
 .continueBtn {
   max-width: 10em;
 }
+
+#charactersGrid {
+  width: 50em;
+  height: 30em;
+  margin: auto;
+}
+

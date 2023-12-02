@@ -41,4 +41,15 @@ export class ArtService {
       {}
     )
   }
+
+  getRolesAssigment(artId: string) {
+    return this.axiosService.request(
+      "GET",
+      "art/rolesAssigment",
+      {},
+      {
+        artId: artId
+      }
+    );
+  }
 }

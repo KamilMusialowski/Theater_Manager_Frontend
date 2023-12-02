@@ -14,6 +14,12 @@ import { AddScenesViewComponent } from './arts-view/create-art/add-scenes-view/a
 import { AssignArtRolesComponent } from './arts-view/assign-art-roles/assign-art-roles.component';
 import { AddRoomModalComponent } from './theaters-view/add-room-modal/add-room-modal.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { CreateRehearsalComponent } from './rehearsal-view/create-rehearsal/create-rehearsal.component';
+import { UserViewComponent } from './user-view/user-view.component';
+import { UserEventsComponent } from './user-view/user-events/user-events.component';
+import { ChangePasswordViewComponent } from './user-view/change-password-view/change-password-view.component';
+import { EditTheaterModalComponent } from './theaters-view/edit-theater-modal/edit-theater-modal.component';
+import { TheaterPersonelViewComponent } from './theaters-view/theater-personel-view/theater-personel-view.component';
 
 
 @NgModule({
@@ -38,7 +44,13 @@ import {ReactiveFormsModule} from "@angular/forms";
     AddScenesViewComponent,
     AssignArtRolesComponent,
     ReactiveFormsModule,
-    AddRoomModalComponent
+    AddRoomModalComponent,
+    CreateRehearsalComponent,
+    UserViewComponent,
+    UserEventsComponent,
+    ChangePasswordViewComponent,
+    EditTheaterModalComponent,
+    TheaterPersonelViewComponent
   ]
 })
 export class FeaturesModule {

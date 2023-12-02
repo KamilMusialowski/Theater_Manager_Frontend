@@ -1,10 +1,47 @@
-<app-header [userName]="userService.loggedInUserFirstName"></app-header>
-<select [(ngModel)]="selectedAct">
-  <option *ngFor="let act of acts" [value]="act">{{ act }}</option>
-</select>
-<div *ngFor="let character of characters">
-  <input type="checkbox" [(ngModel)]="selectedCharacters[character.name]" id="cb{{character.name}}">
-  <label for="cb{{character.name}}">{{character.name}}</label>
+<div class="row">
+  <div class="col">
+    <app-header [userName]="userService.loggedInUserFirstName"></app-header>
+  </div>
 </div>
-<button class="btn-secondary" (click)="createScene()">Add scene to act</button>
-<button class="btn-primary" (click)="onCreateArt()">Create art</button>
+<div class="container mt-2">
+  <div class="row mt-3">
+    <label for="selectedAct" class="form-label">Select Act</label>
+    <div class="col-md-4">
+      <select class="form-select" id="selectedAct" [(ngModel)]="selectedAct">
+        <option *ngFor="let act of acts" [value]="act">{{ act }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-secondary" (click)="createScene()">Add Scene to Act</button>
+    </div>
+
+    <div class="col-md-2">
+      <button class="btn btn-primary" (click)="onCreateArt()">Create Art</button>
+    </div>
+
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-4">
+      <label>Select characters</label>
+      <div *ngFor="let character of characters" class="form-check">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="selectedCharacters[character.name]"
+               id="cb{{character.name}}">
+        <label class="form-check-label" for="cb{{character.name}}">{{character.name}}</label>
+      </div>
+    </div>
+  </div>
+
+
+  <div *ngFor="let act of actModels" class="mt-4">
+    <h2>Act {{act.number}}</h2>
+    <ag-grid-angular
+      id="scenesGrid"
+      class="ag-theme-alpine"
+      rowSelection="single"
+      [columnDefs]="columnDefs"
+      [rowData]="act.scenes">
+    </ag-grid-angular>
+  </div>
+</div>

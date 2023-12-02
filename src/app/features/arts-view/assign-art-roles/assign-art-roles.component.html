@@ -1,7 +1,13 @@
-<div *ngFor="let assigned of assignedActors">
-  <p>{{assigned.character}}</p>
-  <select #actorsList (change)="onActorSelected(assigned.character, actorsList.value)" [(ngModel)]="assigned.actorId">
-    <option *ngFor="let actor of actors" [value]="actor.user.id">{{actor.user.firstName1}} {{actor.user.lastName}}</option>
-  </select>
+<div *ngFor="let assigned of assignedActors" class="mb-3 row align-items-center justify-content-center" id="rolesAssigment">
+  <div class="col-md-6 text-center">
+    <p>{{ assigned.character }}</p>
+  </div>
+  <div class="col-md-6 text-center">
+    <select class="form-select" #actorsList (change)="onActorSelected(assigned.character, actorsList.value)" [(ngModel)]="assigned.actorId">
+      <option *ngFor="let actor of actors" [value]="actor.user.id">{{ actor.user.firstName1 }} {{ actor.user.lastName }}</option>
+    </select>
+  </div>
 </div>
-<button (click)="onSaveClick()">Save</button>
+<div class="text-center">
+  <button class="btn btn-primary" (click)="onSaveClick()">Save</button>
+</div>

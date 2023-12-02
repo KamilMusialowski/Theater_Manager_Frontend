@@ -1,0 +1,42 @@
+<div class="row justify-content-center mt-4">
+  <div class="col-8">
+    <form (ngSubmit)="onEditTheater()" #createTheaterForm="ngForm">
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="name" name="name" [(ngModel)]="theatreModel.name"/>
+        <label class="form-label" for="name">Name</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="city" name="city" [(ngModel)]="theatreModel.city"/>
+        <label class="form-label" for="city">City</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="street" name="street" [(ngModel)]="theatreModel.street"/>
+        <label class="form-label" for="street">Street</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="zipCode" name="zipCode" [(ngModel)]="theatreModel.zipCode"/>
+        <label class="form-label" for="zipCode">Zip-Code</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="voivodeship" name="voivodeship"
+               [(ngModel)]="theatreModel.voivodeship"/>
+        <label class="form-label" for="voivodeship">Voivodeship</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="country" name="country" [(ngModel)]="theatreModel.country"/>
+        <label class="form-label" for="country">Country</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="phoneNumber1" name="phoneNumber1"
+               [(ngModel)]="theatreModel.phoneNumber1"/>
+        <label class="form-label" for="phoneNumber1">Phone number #1</label>
+      </div>
+      <div class="form-outline mb-4">
+        <input class="form-control" type="text" id="phoneNumber2" name="phoneNumber2"
+               [(ngModel)]="theatreModel.phoneNumber2"/>
+        <label class="form-label" for="phoneNumber2">Phone number #2</label>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mb-4">Edit theater</button>
+    </form>
+  </div>
+</div>

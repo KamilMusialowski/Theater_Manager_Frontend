@@ -11,7 +11,17 @@
   type="button"
   class="btn btn-light"
   [disabled]="!rowSelected"
+  (click)="openPersonelModal()">View theater personel</button>
+<button
+  type="button"
+  class="btn btn-light"
+  [disabled]="!rowSelected"
   (click)="openAddRoomModal()">Add room to theater</button>
+<button
+  type="button"
+  class="btn btn-light"
+  [disabled]="!rowSelected"
+  (click)="openEditTheaterModal()">Edit theater</button>
 <ag-grid-angular
   id="theatersGrid"
   class="ag-theme-alpine"

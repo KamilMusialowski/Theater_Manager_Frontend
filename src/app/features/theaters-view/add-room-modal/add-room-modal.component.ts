@@ -32,7 +32,8 @@ export class AddRoomModalComponent implements OnInit{
       width: 100
     }, {
       headerName: 'Capacity',
-      field: 'capacity'
+      field: 'capacity',
+      sortable: true
     }
   ];
 

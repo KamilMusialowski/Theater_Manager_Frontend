@@ -8,6 +8,8 @@ import {TheaterService} from "../../core/services/theater.service";
 import {AddPersonelModalComponent} from "./add-personel-modal/add-personel-modal.component";
 import {single} from "rxjs";
 import {AddRoomModalComponent} from "./add-room-modal/add-room-modal.component";
+import {EditTheaterModalComponent} from "./edit-theater-modal/edit-theater-modal.component";
+import {TheaterPersonelViewComponent} from "./theater-personel-view/theater-personel-view.component";
 
 @Component({
   selector: 'app-theaters-view',
@@ -80,12 +82,26 @@ export class TheatersViewComponent implements OnInit{
     });
   }
 
+  openEditTheaterModal(): void {
+    this.theaterService.theaterId = this.rowSelected.id;
+    let addRoomDialog = this.dialog.open(EditTheaterModalComponent, {
+      height: '600px',
+      width: '500px'
+    });
+  }
+
+  openPersonelModal(): void {
+    this.theaterService.theaterId = this.rowSelected.id;
+    let addRoomDialog = this.dialog.open(TheaterPersonelViewComponent, {
+      height: '700px',
+      width: '800px'
+    });
+  }
+
   onRowSelected(event: any) {
-    console.log(event.node);
     if(event.node.selected) {
       this.rowSelected = event.node.data;
     }
-    console.log(this.rowSelected.id);
   }
 
   get rowData(): any[] {

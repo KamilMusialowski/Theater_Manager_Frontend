@@ -1,10 +1,15 @@
-<app-expandable-create-section></app-expandable-create-section>
-<button (click)="clickAssignRoles()">Assign art roles</button>
-<ag-grid-angular
-  id="artsGrid"
-  class="ag-theme-alpine"
-  rowSelection="single"
-  [columnDefs]="columnDefs"
-  [rowData]="rowData"
-  (rowSelected)="onRowSelected($event)">
-</ag-grid-angular>
+<div class="container mt-3">
+  <app-expandable-create-section></app-expandable-create-section>
+  <ag-grid-angular
+    id="artsGrid"
+    class="ag-theme-alpine mt-3"
+    rowSelection="single"
+    [columnDefs]="columnDefs"
+    [rowData]="rowData"
+    (rowSelected)="onRowSelected($event)">
+  </ag-grid-angular>
+  <div class="mt-3">
+    <button class="btn btn-primary" (click)="clickAssignRoles()">Assign Art Roles</button>
+    <button class="btn btn-success ms-2" (click)="clickCreateRehearsal()">Create Rehearsal</button>
+  </div>
+</div>

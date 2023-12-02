@@ -10,6 +10,7 @@ export class UserService {
 
   _loggedInUserId: string = '';
   _loggedInUserFirstName: string = '';
+  _loggedInUserRoles: any[] = [];
 
   constructor(private axiosService: AxiosService, private router: Router, private snackBarService: SnackBarService) {
   }
@@ -25,6 +26,7 @@ export class UserService {
         this.axiosService.setAuthToken(response.data.token);
         this._loggedInUserId = response.data.id;
         this._loggedInUserFirstName = response.data.firstName1;
+        this._loggedInUserRoles = response.data.systemRoles;
         const navExtras: NavigationExtras = {
           state: {
             userId: response.data.id,
@@ -51,6 +53,7 @@ export class UserService {
         this.axiosService.setAuthToken(response.data.token);
         this._loggedInUserId = response.data.id;
         this._loggedInUserFirstName = response.data.firstName1;
+        this._loggedInUserRoles = response.data.systemRoles;
         const navExtras: NavigationExtras = {
           state: {
             userId: response.data.id,
@@ -72,6 +75,18 @@ export class UserService {
       {},
       {}
     );
+  }
+
+  changePassword(userId: string, newPassword: string): Promise<any> {
+    return this.axiosService.request(
+      "POST",
+      "/users/changePassword",
+      {
+        userId: userId,
+        newPassword: newPassword
+      },
+      {}
+    )
   }
 
 
